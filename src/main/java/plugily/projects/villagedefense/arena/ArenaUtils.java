@@ -113,49 +113,11 @@ public class ArenaUtils {
   }
 
   public static Arena initializeArena(String id) {
-    Arena arena;
-    if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_11_R1)) {
-      arena = new ArenaInitializer1_11_R1(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_12_R1)) {
-      arena = new ArenaInitializer1_12_R1(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R1)) {
-      arena = new ArenaInitializer1_13_R1(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R2)) {
-      arena = new ArenaInitializer1_13_R2(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_14_R1)) {
-      arena = new ArenaInitializer1_14_R1(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_15_R1)){
-      arena = new ArenaInitializer1_15_R1(id, plugin);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R1)){
-      arena = new ArenaInitializer1_16_R1(id, plugin);
-    } else if(ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R2)) {
-      arena = new ArenaInitializer1_16_R2(id, plugin);
-    } else {
-      arena = new ArenaInitializer1_16_R3(id, plugin);
-    }
-    return arena;
+    return new ArenaInitializer1_16_R3(id, plugin);
   }
 
   public static void setWorld(Arena arena) {
-    if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_11_R1)) {
-      ((ArenaInitializer1_11_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_12_R1)) {
-      ((ArenaInitializer1_12_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R1)) {
-      ((ArenaInitializer1_13_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R2)) {
-      ((ArenaInitializer1_13_R2) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_14_R1)) {
-      ((ArenaInitializer1_14_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_15_R1)) {
-      ((ArenaInitializer1_15_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R1)) {
-      ((ArenaInitializer1_16_R1) arena).setWorld(arena.getStartLocation());
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R2)) {
-      ((ArenaInitializer1_16_R2) arena).setWorld(arena.getStartLocation());
-    } else {
-      ((ArenaInitializer1_16_R3) arena).setWorld(arena.getStartLocation());
-    }
+    ((ArenaInitializer1_16_R3) arena).setWorld(arena.getStartLocation());
   }
 
   public static void removeSpawnedZombies(Arena arena) {

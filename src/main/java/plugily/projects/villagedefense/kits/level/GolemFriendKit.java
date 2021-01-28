@@ -81,33 +81,7 @@ public class GolemFriendKit extends LevelKit {
   }
 
   private void spawnGolem(Player player, Arena arena) {
-    if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_11_R1)) {
-      ArenaInitializer1_11_R1 initializer = (ArenaInitializer1_11_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_12_R1)) {
-      ArenaInitializer1_12_R1 initializer = (ArenaInitializer1_12_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R1)) {
-      ArenaInitializer1_13_R1 initializer = (ArenaInitializer1_13_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_13_R2)) {
-      ArenaInitializer1_13_R2 initializer = (ArenaInitializer1_13_R2) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_14_R1)) {
-      ArenaInitializer1_14_R1 initializer = (ArenaInitializer1_14_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_15_R1)) {
-      ArenaInitializer1_15_R1 initializer = (ArenaInitializer1_15_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R1)) {
-      ArenaInitializer1_16_R1 initializer = (ArenaInitializer1_16_R1) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else if (ServerVersion.Version.isCurrentEqual(ServerVersion.Version.v1_16_R2)) {
-      ArenaInitializer1_16_R2 initializer = (ArenaInitializer1_16_R2) arena;
-      initializer.spawnGolem(initializer.getStartLocation(), player);
-    } else {
       ArenaInitializer1_16_R3 initializer = (ArenaInitializer1_16_R3) arena;
       initializer.spawnGolem(initializer.getStartLocation(), player);
-    }
   }
 }

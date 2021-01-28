@@ -76,16 +76,4 @@ public class EntityRegistry {
     Debugger.debug("[EntityRegistry] Registry job finished took {0}ms", System.currentTimeMillis() - start);
   }
 
-  public static void registerv1_11_R1Entity(String name, int id, final Class<? extends net.minecraft.server.v1_11_R1.EntityInsentient> customClass) {
-    final net.minecraft.server.v1_11_R1.MinecraftKey key = new net.minecraft.server.v1_11_R1.MinecraftKey(name);
-    net.minecraft.server.v1_11_R1.EntityTypes.b.a(id, key, customClass);
-    net.minecraft.server.v1_11_R1.EntityTypes.d.add(key);
-  }
-
-  public void registerv1_12_R1Entity(String name, int id, Class<? extends net.minecraft.server.v1_12_R1.EntityInsentient> customClass) {
-    final net.minecraft.server.v1_12_R1.MinecraftKey key = new net.minecraft.server.v1_12_R1.MinecraftKey(name);
-    net.minecraft.server.v1_12_R1.EntityTypes.b.a(id, key, customClass);
-    net.minecraft.server.v1_12_R1.EntityTypes.d.add(key);
-  }
-
 }

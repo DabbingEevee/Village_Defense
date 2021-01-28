@@ -157,8 +157,7 @@ public class ArenaEvents implements Listener {
             event.setCancelled(true);
             event.setDamage(0);
             Wolf wolf = ((Wolf) event.getEntity());
-            java.util.UUID ownerUUID = plugin.isPaper() ? wolf.getOwnerUniqueId()
-                : (wolf.getOwner() != null) ? wolf.getOwner().getUniqueId() : null;
+            java.util.UUID ownerUUID = (wolf.getOwner() != null) ? wolf.getOwner().getUniqueId() : null;
             if (ownerUUID != null && Bukkit.getPlayer(ownerUUID) != null) {
               Bukkit.getPlayer(ownerUUID).sendMessage(plugin.getChatManager().getPrefix() + plugin.getChatManager().colorMessage(Messages.WOLF_DIED));
             }
