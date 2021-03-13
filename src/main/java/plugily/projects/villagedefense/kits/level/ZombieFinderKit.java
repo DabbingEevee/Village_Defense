@@ -69,6 +69,8 @@ public class ZombieFinderKit extends LevelKit implements Listener {
         .name(getPlugin().getChatManager().colorMessage(Messages.KITS_ZOMBIE_TELEPORTER_GAME_ITEM_NAME))
         .lore(Utils.splitString(getPlugin().getChatManager().colorMessage(Messages.KITS_ZOMBIE_TELEPORTER_GAME_ITEM_LORE), 40))
         .build());
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

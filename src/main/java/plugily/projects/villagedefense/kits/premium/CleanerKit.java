@@ -18,6 +18,8 @@
 
 package plugily.projects.villagedefense.kits.premium;
 
+import java.util.List;
+
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -25,26 +27,26 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+
 import pl.plajerlair.commonsbox.minecraft.helper.ArmorHelper;
 import pl.plajerlair.commonsbox.minecraft.helper.WeaponHelper;
 import pl.plajerlair.commonsbox.minecraft.item.ItemBuilder;
 import pl.plajerlair.commonsbox.minecraft.item.ItemUtils;
+import plugily.projects.villagedefense.api.StatsStorage;
 import plugily.projects.villagedefense.arena.Arena;
 import plugily.projects.villagedefense.arena.ArenaRegistry;
 import plugily.projects.villagedefense.arena.ArenaUtils;
 import plugily.projects.villagedefense.handlers.PermissionsManager;
 import plugily.projects.villagedefense.handlers.language.Messages;
 import plugily.projects.villagedefense.kits.KitRegistry;
-import plugily.projects.villagedefense.kits.basekits.PremiumKit;
+import plugily.projects.villagedefense.kits.basekits.LevelKit;
 import plugily.projects.villagedefense.user.User;
 import plugily.projects.villagedefense.utils.Utils;
-
-import java.util.List;
 
 /**
  * Created by Tom on 18/08/2014.
  */
-public class CleanerKit extends PremiumKit implements Listener {
+public class CleanerKit extends LevelKit implements Listener {
 
   public CleanerKit() {
     setName(getPlugin().getChatManager().colorMessage(Messages.KITS_CLEANER_NAME));
@@ -52,11 +54,13 @@ public class CleanerKit extends PremiumKit implements Listener {
     setDescription(description.toArray(new String[0]));
     getPlugin().getServer().getPluginManager().registerEvents(this, getPlugin());
     KitRegistry.registerKit(this);
+    setLevel(20);
+
   }
 
   @Override
   public boolean isUnlockedByPlayer(Player player) {
-    return PermissionsManager.isPremium(player) || player.hasPermission("villagedefense.kit.cleaner");
+      return getPlugin().getUserManager().getUser(player).getStat(StatsStorage.StatisticType.LEVEL) >= this.getLevel() || player.hasPermission("villagedefense.kit.terminator");
   }
 
   @Override

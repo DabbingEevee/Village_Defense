@@ -58,6 +58,8 @@ public class ArcherKit extends LevelKit {
     player.getInventory().addItem(WeaponHelper.getEnchantedBow(Enchantment.DURABILITY, 10));
     player.getInventory().addItem(new ItemStack(Material.ARROW, 64));
     player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 10));
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

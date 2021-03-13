@@ -123,7 +123,7 @@ public class KitRegistry {
         }
       }
     }
-
+    new GrillaKit();
     KitRegistry.setDefaultKit(knightkit);
   }
 

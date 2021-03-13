@@ -18,6 +18,8 @@
 
 package plugily.projects.villagedefense.kits.premium;
 
+import java.util.List;
+
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -30,22 +32,22 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionType;
+
 import pl.plajerlair.commonsbox.minecraft.compat.XMaterial;
 import pl.plajerlair.commonsbox.minecraft.helper.ArmorHelper;
 import pl.plajerlair.commonsbox.minecraft.helper.WeaponHelper;
+import plugily.projects.villagedefense.api.StatsStorage;
 import plugily.projects.villagedefense.handlers.PermissionsManager;
 import plugily.projects.villagedefense.handlers.language.Messages;
 import plugily.projects.villagedefense.kits.KitRegistry;
-import plugily.projects.villagedefense.kits.basekits.PremiumKit;
+import plugily.projects.villagedefense.kits.basekits.LevelKit;
 import plugily.projects.villagedefense.user.User;
 import plugily.projects.villagedefense.utils.Utils;
-
-import java.util.List;
 
 /**
  * Created by Tom on 1/12/2015.
  */
-public class MedicKit extends PremiumKit implements Listener {
+public class MedicKit extends LevelKit implements Listener {
 
   public MedicKit() {
     setName(getPlugin().getChatManager().colorMessage(Messages.KITS_MEDIC_NAME));
@@ -53,11 +55,13 @@ public class MedicKit extends PremiumKit implements Listener {
     setDescription(description.toArray(new String[0]));
     getPlugin().getServer().getPluginManager().registerEvents(this, getPlugin());
     KitRegistry.registerKit(this);
+    setLevel(3);
+
   }
 
   @Override
   public boolean isUnlockedByPlayer(Player player) {
-    return PermissionsManager.isPremium(player) || player.hasPermission("villagedefense.kit.medic");
+      return getPlugin().getUserManager().getUser(player).getStat(StatsStorage.StatisticType.LEVEL) >= this.getLevel() || player.hasPermission("villagedefense.kit.terminator");
   }
 
   @Override

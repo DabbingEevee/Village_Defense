@@ -69,6 +69,8 @@ public class WorkerKit extends LevelKit implements Listener {
     player.getInventory().addItem(new ItemStack(XMaterial.ARROW.parseMaterial(), 64));
     player.getInventory().addItem(new ItemStack(XMaterial.COOKED_BEEF.parseMaterial(), 10));
     player.getInventory().addItem(new ItemStack(getMaterial(), 2));
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

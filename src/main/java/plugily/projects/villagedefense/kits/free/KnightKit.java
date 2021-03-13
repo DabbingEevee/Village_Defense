@@ -53,7 +53,9 @@ public class KnightKit extends FreeKit {
     player.getInventory().addItem(WeaponHelper.getUnBreakingSword(WeaponHelper.ResourceType.WOOD, 10));
     ArmorHelper.setArmor(player, ArmorHelper.ArmorType.LEATHER);
     player.getInventory().addItem(new ItemStack(XMaterial.COOKED_PORKCHOP.parseMaterial(), 8));
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
 
+    
   }
 
   @Override

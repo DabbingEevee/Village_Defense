@@ -61,6 +61,8 @@ public class TerminatorKit extends LevelKit {
     player.getInventory().addItem(new ItemStack(XMaterial.COOKED_PORKCHOP.parseMaterial(), 8));
     player.getInventory().addItem(Utils.getPotion(PotionType.STRENGTH, 2, true));
     player.getInventory().addItem(Utils.getPotion(PotionType.REGEN, 1, true));
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
 
   }
 

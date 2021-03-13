@@ -77,17 +77,17 @@ public class PowerupRegistry {
     long start = System.currentTimeMillis();
 
     ChatManager chatManager = plugin.getChatManager();
-    registerPowerup(new Powerup("MAP_CLEAN", chatManager.colorMessage(Messages.POWERUPS_MAP_CLEAN_NAME),
-        chatManager.colorMessage(Messages.POWERUPS_MAP_CLEAN_DESCRIPTION), XMaterial.BLAZE_POWDER, pickup -> {
-      if (pickup.getArena().getZombies() != null) {
-        ArenaUtils.removeSpawnedZombies(pickup.getArena());
-        pickup.getArena().getZombies().clear();
-      }
-
-      for (Player p : pickup.getArena().getPlayers()) {
-        p.sendTitle(pickup.getPowerup().getName(), pickup.getPowerup().getDescription(), 5, 30, 5);
-      }
-    }));
+    //registerPowerup(new Powerup("MAP_CLEAN", chatManager.colorMessage(Messages.POWERUPS_MAP_CLEAN_NAME),
+    //    chatManager.colorMessage(Messages.POWERUPS_MAP_CLEAN_DESCRIPTION), XMaterial.BLAZE_POWDER, pickup -> {
+    //  if (pickup.getArena().getZombies() != null) {
+    //    ArenaUtils.removeSpawnedZombies(pickup.getArena());
+    //    pickup.getArena().getZombies().clear();
+    //  }
+    //
+    //  for (Player p : pickup.getArena().getPlayers()) {
+    //    p.sendTitle(pickup.getPowerup().getName(), pickup.getPowerup().getDescription(), 5, 30, 5);
+    //  }
+    //}));
     registerPowerup(new Powerup("DOUBLE_DAMAGE", chatManager.colorMessage(Messages.POWERUPS_DOUBLE_DAMAGE_NAME),
         chatManager.colorMessage(Messages.POWERUPS_DOUBLE_DAMAGE_DESCRIPTION), XMaterial.REDSTONE, pickup -> {
       for (Player p : pickup.getArena().getPlayers()) {

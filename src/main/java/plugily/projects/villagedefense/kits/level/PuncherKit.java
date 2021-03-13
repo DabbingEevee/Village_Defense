@@ -60,6 +60,8 @@ public class PuncherKit extends LevelKit {
     player.getInventory().addItem(WeaponHelper.getEnchantedBow(Enchantment.DURABILITY, 5));
     player.getInventory().addItem(new ItemStack(Material.ARROW, 25));
     player.getInventory().addItem(new ItemStack(XMaterial.COOKED_PORKCHOP.parseMaterial(), 8));
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

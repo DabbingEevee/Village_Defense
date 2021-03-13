@@ -65,6 +65,8 @@ public class GolemFriendKit extends LevelKit {
       return;
     }
     spawnGolem(player, arena);
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

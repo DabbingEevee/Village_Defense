@@ -164,24 +164,13 @@ public class Events implements Listener {
     if (event.getRightClicked().getType() == EntityType.VILLAGER) {
       event.setCancelled(true);
       arena.getShopManager().openShop(event.getPlayer());
-    } else if (event.getRightClicked().getType() == EntityType.IRON_GOLEM) {
-      IronGolem ironGolem = (IronGolem) event.getRightClicked();
-      if (event.getPlayer().isSneaking()) {
-        return;
-      }
-      if (ironGolem.getCustomName() != null && ironGolem.getCustomName().contains(event.getPlayer().getName())) {
-        MiscUtils.setPassenger(event.getRightClicked(), event.getPlayer());
-      } else {
-        event.getPlayer().sendMessage(plugin.getChatManager().getPrefix() + plugin.getChatManager().colorMessage(Messages.CANT_RIDE_OTHERS_GOLEM));
-      }
-    } else if (event.getRightClicked().getType() == EntityType.WOLF) {
-      Wolf wolf = (Wolf) event.getRightClicked();
-      //to prevent wolves sitting
-      if (wolf.getCustomName() != null && wolf.getCustomName().contains(event.getPlayer().getName())) {
-        MiscUtils.setPassenger(event.getRightClicked(), event.getPlayer());
-      }
-      wolf.setSitting(false);
+    }    
+    
+    if (event.getRightClicked() instanceof Wolf) {
+        Wolf wolf = (Wolf) event.getRightClicked();
+        wolf.setSitting(false);
     }
+    
   }
 
   @EventHandler

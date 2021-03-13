@@ -56,6 +56,8 @@ public class LightTankKit extends FreeKit {
     ArmorHelper.setArmor(player, ArmorHelper.ArmorType.IRON);
     player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(26.0);
     player.setHealth(26.0);
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
   }
 
   @Override

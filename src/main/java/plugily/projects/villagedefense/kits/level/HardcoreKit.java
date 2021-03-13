@@ -60,6 +60,8 @@ public class HardcoreKit extends LevelKit {
     player.getInventory().addItem(Utils.getPotion(PotionType.INSTANT_HEAL, 2, true));
     player.getInventory().addItem(new ItemStack(Material.COOKIE, 10));
     player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(10.0);
+    player.getInventory().addItem(new ItemStack(Material.SADDLE));
+
 
   }
 

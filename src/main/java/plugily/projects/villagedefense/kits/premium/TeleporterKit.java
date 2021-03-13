@@ -18,9 +18,9 @@
 
 package plugily.projects.villagedefense.kits.premium;
 
-import com.github.stefvanschie.inventoryframework.Gui;
-import com.github.stefvanschie.inventoryframework.GuiItem;
-import com.github.stefvanschie.inventoryframework.pane.OutlinePane;
+import java.util.Collections;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -31,26 +31,29 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+
+import com.github.stefvanschie.inventoryframework.Gui;
+import com.github.stefvanschie.inventoryframework.GuiItem;
+import com.github.stefvanschie.inventoryframework.pane.OutlinePane;
+
 import pl.plajerlair.commonsbox.minecraft.compat.XMaterial;
 import pl.plajerlair.commonsbox.minecraft.helper.ArmorHelper;
 import pl.plajerlair.commonsbox.minecraft.helper.WeaponHelper;
 import pl.plajerlair.commonsbox.minecraft.item.ItemBuilder;
 import pl.plajerlair.commonsbox.minecraft.item.ItemUtils;
+import plugily.projects.villagedefense.api.StatsStorage;
 import plugily.projects.villagedefense.arena.Arena;
 import plugily.projects.villagedefense.arena.ArenaRegistry;
 import plugily.projects.villagedefense.handlers.PermissionsManager;
 import plugily.projects.villagedefense.handlers.language.Messages;
 import plugily.projects.villagedefense.kits.KitRegistry;
-import plugily.projects.villagedefense.kits.basekits.PremiumKit;
+import plugily.projects.villagedefense.kits.basekits.LevelKit;
 import plugily.projects.villagedefense.utils.Utils;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Tom on 18/08/2014.
  */
-public class TeleporterKit extends PremiumKit implements Listener {
+public class TeleporterKit extends LevelKit implements Listener {
 
   public TeleporterKit() {
     setName(getPlugin().getChatManager().colorMessage(Messages.KITS_TELEPORTER_NAME));
@@ -58,11 +61,13 @@ public class TeleporterKit extends PremiumKit implements Listener {
     setDescription(description.toArray(new String[0]));
     getPlugin().getServer().getPluginManager().registerEvents(this, getPlugin());
     KitRegistry.registerKit(this);
+    setLevel(20);
+
   }
 
   @Override
   public boolean isUnlockedByPlayer(Player player) {
-    return PermissionsManager.isPremium(player) || player.hasPermission("villagedefense.kit.teleporter");
+      return getPlugin().getUserManager().getUser(player).getStat(StatsStorage.StatisticType.LEVEL) >= this.getLevel() || player.hasPermission("villagedefense.kit.terminator");
   }
 
   @Override
